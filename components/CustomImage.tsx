@@ -3,7 +3,7 @@ import React from 'react';
 
 export type CustomImageProps = {
   fromWeb: boolean;
-  image: string;
+  image: string | { uri: string };
   title: string;
   width: number;
   height: number;
@@ -16,7 +16,13 @@ const CustomImage: React.FC<CustomImageProps> = ({
   width,
   height,
 }) => {
-  const imageSource = fromWeb ? { uri: image } : { uri: `file://${image}` };
+  let imageSource;
+
+  if (fromWeb) {
+    imageSource = { uri: typeof image === 'string' ? image : image.uri };
+  } else {
+    imageSource = typeof image === 'string' ? { uri: `file://${image}` } : image;
+  }
 
   return (
     <>
