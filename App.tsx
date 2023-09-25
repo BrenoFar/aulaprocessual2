@@ -2,8 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import CustomImage from './components/CustomImage';
 import React from 'react';
+import ImagemLocal from './assets/screenshot.png';
 // verificar esse problema no tsx, algo de errado está acontecendo
-import ImagemLocal from './assets/screenshot.png'; // Importando a imagem local
 
 
 
@@ -47,10 +47,11 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 50,
     flex: 1,
-    backgroundColor: 'grey',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor:'#ffC300',
   },
   tituloView:{
     fontSize:18,
